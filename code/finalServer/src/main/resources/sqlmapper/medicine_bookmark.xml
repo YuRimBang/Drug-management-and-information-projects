@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.MedicineBookmarkMapper">
+    <resultMap id="medicineBookmarkResult" type="MedicineBookmarkDTO">
+        <result property="pk" column="pk"/>
+        <result property="user_pk" column="user_pk"/>
+        <result property="infirmary_pk" column="infirmary_pk"/>
+        <result property="medicine_pk" column="medicine_pk"/>
+    </resultMap>
+
+    <insert id="insertMedicineBookmark" parameterType="MedicineBookmarkDTO">
+        INSERT INTO medicine_bookmark(user_pk, infirmary_pk, medicine_pk)
+        VALUES (#{user_pk}, #{infirmary_pk}, #{medicine_pk})
+    </insert>
+
+    <update id="changeInfirmaryPK">
+        UPDATE medicine_bookmark
+        set infirmary_pk = #{infirmary_pk}
+        WHERE infirmary_pk = #{before}
+    </update>
+
+    <select id="selectMedicinePk" parameterType="int" resultType="java.lang.Integer">
+        SELECT medicine_pk FROM medicine_bookmark WHERE user_pk = #{user_pk}
+    </select>
+
+    <select id="selectMedBookmarkPk" parameterType="Map" resultType="java.lang.Integer">
+        SELECT pk FROM medicine_bookmark WHERE user_pk = #{user_pk} AND medicine_pk=#{medicine_pk}
+    </select>
+    <!--    <select id="selectMedicinePk" parameterType="int" resultType="MedicineBookmarkDTO">-->
+    <!--        SELECT medicine_pk FROM medicine_bookmark WHERE user_pk = #{user_pk}-->
+    <!--    </select>-->
+
+    <delete id="deleteUser" parameterType="Map">
+        DELETE FROM medicine_bookmark WHERE user_pk = #{pk}
+    </delete>
+
+    <delete id="deleteInfirmaryPk" parameterType="Map">
+        DELETE FROM medicine_bookmark WHERE infirmary_pk = (SELECT infirmary_pk FROM user WHERE pk = #{pk});
+    </delete>
+
+</mapper>

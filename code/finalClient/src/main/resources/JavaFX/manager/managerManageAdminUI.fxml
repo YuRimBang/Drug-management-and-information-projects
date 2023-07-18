@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1159.0" text="운영자 관리" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.manager.ManagerManageAdmin">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="bigBackground">
+            <children>
+                <TextField fx:id="idField" layoutX="96.0" layoutY="73.0" prefHeight="30.0" prefWidth="174.0" promptText="운영자 이름" />
+                <TextField fx:id="phoneNumField" layoutX="282.0" layoutY="73.0" prefHeight="30.0" prefWidth="182.0" promptText="운영자 전화번호" />
+                <Button layoutX="476.0" layoutY="75.0" mnemonicParsing="false" onAction="#searchAdmin" prefHeight="25.0" prefWidth="80.0" styleClass="btn" text="검색" />
+                <ListView fx:id="adminListField" layoutX="96.0" layoutY="126.0" prefHeight="406.0" prefWidth="840.0" />
+                <Button layoutX="957.0" layoutY="126.0" mnemonicParsing="false" onAction="#goToViewAdminListScreen" prefHeight="29.0" prefWidth="125.0" styleClass="btn" text="운영자 목록" />
+                <Button layoutX="957.0" layoutY="180.0" mnemonicParsing="false" onAction="#goToApprovalAdminScreen" prefHeight="29.0" prefWidth="125.0" styleClass="btn" text="승인요청확인" />
+                <Button layoutX="957.0" layoutY="230.0" mnemonicParsing="false" onAction="#deleteSelectedAdmin" prefHeight="29.0" prefWidth="125.0" styleClass="btn" text="운영자 삭제" />
+                <Button layoutX="957.0" layoutY="500.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="29.0" prefWidth="125.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

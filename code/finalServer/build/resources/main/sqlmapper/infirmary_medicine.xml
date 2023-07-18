@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.InfirmaryMedicineMapper">
+    <resultMap id="infirmaryMedicineResult" type="InfirmaryMedicineDTO">
+        <result property="pk" column="pk"/>
+        <result property="infirmary_pk" column="infirmary_pk"/>
+        <result property="medicine_pk" column="medicine_pk"/>
+        <result property="medicine_stock" column="medicine_stock" />
+    </resultMap>
+
+    <select id="selectAll" parameterType="int" resultMap="infirmaryMedicineResult">
+        SELECT *
+        FROM infirmary_medicine
+        WHERE infirmary_pk = #{infirmary_pk}
+    </select>
+
+    <insert id="insertInfirmaryMedicine" parameterType="InfirmaryMedicineDTO">
+        INSERT INTO infirmary_medicine(infirmary_pk, medicine_pk, medicine_stock)
+        VALUES (#{infirmary_pk}, #{medicine_pk}, #{medicine_stock})
+    </insert>
+
+    <!--약품 수량 수정-->
+    <update id="updateMedicineStock">
+        UPDATE infirmary_medicine
+        SET medicine_stock = #{medicine_stock}
+        WHERE pk = #{pk}
+    </update>
+
+    <update id="plusMedicineStock">
+        UPDATE infirmary_medicine
+        SET medicine_stock = medicine_stock + 1
+        WHERE pk = #{pk}
+    </update>
+
+    <update id="minusMedicineStock">
+        UPDATE infirmary_medicine
+        SET medicine_stock = CASE
+                                 WHEN medicine_stock > 1 THEN medicine_stock - 1
+                                 ELSE 0
+            END
+        WHERE pk = #{pk}
+    </update>
+
+    <select id="selectMedicineStock" parameterType="int" resultType="InfirmaryMedicineDTO">
+        SELECT *
+        FROM infirmary_medicine
+        WHERE infirmary_pk = #{infirmary_pk}
+    </select>
+
+    <delete id="deleteInfirmaryMedicine">
+        DELETE FROM infirmary_medicine
+        WHERE pk = #{pk}
+    </delete>
+
+    <!--품목명 가져오기-->
+    <select id="selectMedicineName" resultType="String" parameterType="Map">
+        SELECT medicine.itemName
+        FROM infirmary_medicine
+                 JOIN medicine ON infirmary_medicine.medicine_pk = medicine.seqNum
+        WHERE infirmary_medicine.medicine_pk = #{medicine_pk}
+    </select>
+
+</mapper>

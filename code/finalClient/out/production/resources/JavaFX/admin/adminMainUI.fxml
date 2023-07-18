@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="720.1" text="운영자 메인화면" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.AdminMain">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="background">
+            <children>
+                <ToolBar layoutX="70.0" layoutY="81.0" prefHeight="58.0" prefWidth="650.0" styleClass="btn">
+                    <items>
+                        <Circle fill="WHITE" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label fx:id="mm" text="운영자" prefHeight="24.0" prefWidth="100.0" />
+                        <Button mnemonicParsing="false" onAction="#goToAdminUpdateInfoScreen" styleClass="btn" text="개인정보 수정" />
+                        <Button mnemonicParsing="false" onAction="#goToAdminUpdatePwScreen" styleClass="btn" text="비밀번호 수정" />
+                        <Button mnemonicParsing="false" onAction="#goToAdminViewInfoScreen" styleClass="btn" text="개인정보 조회" />
+                        <Button mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="24.0" prefWidth="96.0" styleClass="btn" text="로그아웃" />
+                    </items>
+                </ToolBar>
+                <Label layoutX="99.0" layoutY="163.0" text="보건실 관리">
+                </Label>
+                <Button layoutX="64.0" layoutY="186.0" mnemonicParsing="false" onAction="#goToAdminRegisterInfimaryScreen" prefHeight="35.0" prefWidth="150.0" styleClass="btn" text="보건실 등록 요청" />
+                <Button layoutX="64.0" layoutY="236.0" mnemonicParsing="false" onAction="#goToAdminUpdateInfimaryInfoScreen" prefHeight="35.0" prefWidth="150.0" styleClass="btn" text="보건실 정보 수정" />
+                <Button layoutX="64.0" layoutY="286.0" mnemonicParsing="false" onAction="#goToAdminViewInfimaryInfoScreen" prefHeight="35.0" prefWidth="150.0" styleClass="btn" text="보건실 정보 조회" />
+                <Button layoutX="291.0" layoutY="372.0" mnemonicParsing="false" onAction="#goToAdminSearchMedicineScreen" prefHeight="35.0" prefWidth="150.0" styleClass="btn" text="약 검색" />
+                <Label layoutX="333.0" layoutY="163.0" text="약품 관리">
+                </Label>
+                <Button layoutX="291.0" layoutY="186.0" mnemonicParsing="false" onAction="#goToAdminAddMedicineScreen" prefHeight="35.0" prefWidth="150.0" styleClass="btn" text="약품 추가" />
+                <Button layoutX="290.0" layoutY="236.0" mnemonicParsing="false" onAction="#goToAdminUpdateMedicineNumScreen" prefHeight="35.0" prefWidth="150.0" styleClass="btn" text="약품 수량 수정" />
+                <Button layoutX="290.0" layoutY="285.0" mnemonicParsing="false" onAction="#goToAdminDeleteMedicineScreen" prefHeight="35.0" prefWidth="150.0" styleClass="btn" text="약품 삭제" />
+                <Button layoutX="507.0" layoutY="372.0" mnemonicParsing="false" onAction="#goToAdminSetAlarmScreen" prefHeight="35.0" prefWidth="150.0" styleClass="btn" text="알림설정" />
+                <Label layoutX="552.0" layoutY="163.0" text="공지사항">
+                </Label>
+                <Button layoutX="507.0" layoutY="186.0" mnemonicParsing="false" onAction="#goToAdminRegisterNoticeScreen" prefHeight="35.0" prefWidth="150.0" styleClass="btn" text="공지사항 등록" />
+                <Button layoutX="507.0" layoutY="236.0" mnemonicParsing="false" onAction="#goToAdminUpdateNoticeScreen" prefHeight="35.0" prefWidth="150.0" styleClass="btn" text="공지사항 수정" />
+                <Button layoutX="507.0" layoutY="285.0" mnemonicParsing="false" onAction="#goToAdminDeleteNoticeScreen" prefHeight="35.0" prefWidth="150.0" styleClass="btn" text="공지사항 삭제" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

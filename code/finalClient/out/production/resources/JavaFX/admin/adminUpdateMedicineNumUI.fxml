@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1160.0" text="약품 수량 수정" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.AdminUpdateMedicineNum">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="background">
+            <children>
+                <ListView fx:id="medicineNumListField" layoutX="103.0" layoutY="70.0" prefHeight="416.0" prefWidth="954.0" />
+                <Label layoutX="103.0" layoutY="505.0" text="수량 : " />
+                <TextField fx:id="stockField" layoutX="155.0" layoutY="498.0" prefHeight="29.0" prefWidth="147.0" />
+                <Button layoutX="857.0" layoutY="500.0" mnemonicParsing="false" onAction="#updateMedicineNum" prefHeight="25.0" prefWidth="80.0" styleClass="btn" text="수정" />
+                <Button layoutX="953.0" layoutY="500.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="26.0" prefWidth="104.0" styleClass="btn" text="뒤로가기" />
+                <Button onAction="#plusMedicineNum" layoutX="316.0" layoutY="501.0" mnemonicParsing="false" styleClass="btn" text="+" />
+                <Button onAction="#minusMedicineNum" layoutX="350.0" layoutY="501.0" mnemonicParsing="false" styleClass="btn" text="-" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

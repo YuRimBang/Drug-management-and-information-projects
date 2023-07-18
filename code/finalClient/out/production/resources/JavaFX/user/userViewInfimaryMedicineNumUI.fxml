@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="720.0" text="학교 보건실 약품 재고 조회" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.UserViewInfirmaryMedicineNum">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="720.0" styleClass="background">
+            <children>
+                <ListView fx:id="medicineNumListField" layoutX="101.0" layoutY="101.0" prefHeight="198.0" prefWidth="238.0" />
+                <Button onAction="#viewMedicineList" layoutX="249.0" layoutY="308.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" styleClass="btn" text="확인" />
+                <ListView fx:id="medicineListField" layoutX="347.0" layoutY="101.0" prefHeight="303.0" prefWidth="270.0" />
+                <Button layoutX="520.0" layoutY="415.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="26.0" prefWidth="97.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1160.1" text="저장한 약의 정보 조회" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.UserViewMedicineStored">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="720.0" styleClass="bigBackground">
+            <children>
+                <ListView fx:id="medicineNameListField" layoutX="97.0" layoutY="93.0" prefHeight="409.0" prefWidth="251.0" />
+                <ListView fx:id="medicineInfoField" layoutX="361.0" layoutY="93.0" prefHeight="340.0" prefWidth="738.0" />
+                <Button layoutX="361.0" layoutY="480.0" mnemonicParsing="false" onAction="#viewMedicineInfo" prefHeight="25.0" prefWidth="80.0" styleClass="btn" text="검색" />
+                <Button layoutX="985.0" layoutY="454.0" mnemonicParsing="false" onAction="#goToSetTakingMedicineScreen" prefHeight="26.0" prefWidth="108.0" styleClass="btn" text="복용설정" />
+                <Button layoutX="985.0" layoutY="496.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="26.0" prefWidth="106.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

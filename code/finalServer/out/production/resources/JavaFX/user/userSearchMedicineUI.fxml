@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="720.0" text="약 검색" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.UserSearchMedicine">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="720.0" styleClass="background">
+            <children>
+                <TextField fx:id="searchField" layoutX="86.0" layoutY="64.0" prefHeight="30.0" prefWidth="320.0" />
+                <Button fx:id="searchBtn" layoutX="417.0" layoutY="64.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="80.0" styleClass="btn" text="검색" />
+                <Button layoutX="498.0" layoutY="119.0" mnemonicParsing="false" onAction="#goToSearchMedicineUsableTogetherScreen" prefHeight="30.0" prefWidth="164.0" styleClass="btn" text="병용 가능 약품 검색" />
+                <Button layoutX="497.0" layoutY="159.0" mnemonicParsing="false" onAction="#goToSearchMedicineShapeScreen" prefHeight="30.0" prefWidth="165.0" styleClass="btn" text="약 모양 검색" />
+                <Button layoutX="497.0" layoutY="199.0" mnemonicParsing="false" onAction="#goToSearchMedicineElderlyScreen" prefHeight="30.0" prefWidth="165.0" styleClass="btn" text="노약자 주의 약 검색" />
+                <Label fx:id="count" layoutX="650.0" layoutY="82.0" text="0개" />
+                <ListView fx:id="medicineListField" layoutX="86.0" layoutY="119.0" prefHeight="298.0" prefWidth="403.0" />
+                <Button fx:id="saveBtn" layoutX="426.0" layoutY="430.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="113.0" styleClass="btn" text="저장" />
+                <Button layoutX="86.0" layoutY="430.0" mnemonicParsing="false" onAction="#showImage" prefHeight="24.0" prefWidth="113.0" styleClass="btn" text="약 이미지" />
+                <Button layoutX="549.0" layoutY="430.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="24.0" prefWidth="113.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

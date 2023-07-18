@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1160.0" text="약품 삭제" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.AdminDeleteMedicine">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="bigBackground">
+            <children>
+                <ListView fx:id="medicineListField" layoutX="116.0" layoutY="85.0" prefHeight="442.0" prefWidth="787.0" />
+                <Button layoutX="936.0" layoutY="420.0" mnemonicParsing="false" onAction="#deleteMedicine" prefHeight="26.0" prefWidth="116.0" styleClass="btn" text="삭제" />
+                <Button layoutX="936.0" layoutY="492.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="26.0" prefWidth="115.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

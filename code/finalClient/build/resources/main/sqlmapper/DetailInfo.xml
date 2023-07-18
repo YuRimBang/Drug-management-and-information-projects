@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.DetailInfoMapper">
+    <resultMap id="result" type="DetailInfoDTO">
+        <result property="itemSeq" column="itemSeq"/>
+        <result property="itemName" column="itemName"/>
+        <result property="entpName" column="entpName"/>
+        <result property="mainIngr" column="mainIngr"/>
+        <result property="classNoName" column="classNoName"/>
+        <result property="eeDocData" column="eeDocData"/>
+        <result property="udDocData" column="udDocData"/>
+        <result property="nbDocData" column="nbDocData"/>
+        <result property="etcOtcName" column="etcOtcName"/>
+        <result property="validTerm" column="validTerm"/>
+    </resultMap>
+
+    <insert id="insertDetailInfo" parameterType="DetailInfoDTO">
+        INSERT INTO detailinfo(itemSeq, itemName, entpName, mainIngr, classNoName, eeDocData, udDocData, nbDocData, etcOtcName, validTerm)
+        VALUES (#{itemSeq}, #{itemName}, #{entpName}, #{mainIngr}, #{classNoName}, #{eeDocData}, #{udDocData}, #{nbDocData}, #{etcOtcName}, #{validTerm})
+    </insert>
+
+    <select id="selectDetailInfoByNum" parameterType="java.lang.Integer" resultType="DetailInfoDTO">
+        SELECT * FROM detailInfo
+        WHERE num = #{num}
+    </select>
+
+
+</mapper>

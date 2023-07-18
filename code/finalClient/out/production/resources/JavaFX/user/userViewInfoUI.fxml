@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="720.0" text="개인정보 조회" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.UserViewInfo">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="720.0" styleClass="background">
+            <children>
+                <Label layoutX="236.0" layoutY="123.0" text="아이디 : " />
+                <Label layoutX="240.0" layoutY="174.0" text="이름 : " />
+                <Label layoutX="228.0" layoutY="224.0" text="전화번호 : " />
+                <Label layoutX="232.0" layoutY="275.0" text="학교명 : " />
+                <Text fx:id="idText" layoutX="345.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXXXXX" wrappingWidth="145.6513671875" />
+                <Text fx:id="nameText" layoutX="345.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="홍길동" wrappingWidth="145.6513671875" />
+                <Text fx:id="phoneNumText" layoutX="345.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="010-XXXX-XXXX" wrappingWidth="145.6513671875" />
+                <Text fx:id="schoolText" layoutX="341.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXXXXX학교" wrappingWidth="145.6513671875" />
+                <Button onAction="#secession" layoutX="312.0" layoutY="391.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="103.0" styleClass="btn" text="회원 탈퇴" />
+                <Button onAction="#goToPreviousScreen" layoutX="310.0" layoutY="434.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="108.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

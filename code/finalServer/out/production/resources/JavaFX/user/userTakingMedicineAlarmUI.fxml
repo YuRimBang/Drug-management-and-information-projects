@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" text="복용 알림" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane maxWidth="500.0" minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="720.0" styleClass="background">
+            <children>
+                <Label layoutX="104.0" layoutY="93.0" text="복용 시간입니다." />
+                <Button styleClass="btn" layoutX="129.0" layoutY="127.0" mnemonicParsing="false" text="확인" />
+                <Label layoutX="119.0" layoutY="68.0" text="'xxx' 약품의" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

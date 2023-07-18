@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="719.0" text="이용자 메인화면" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.UserMain">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="719.0" styleClass="background">
+            <children>
+                <ToolBar layoutX="44.0" layoutY="23.0" prefHeight="67.0" prefWidth="642.0" styleClass="btn">
+                    <items>
+                  <Circle fill="WHITE" radius="27.0" stroke="BLACK" strokeType="INSIDE" styleClass="acter" />
+                        <Button mnemonicParsing="false" onAction="#goToUpdateInfoScreen" styleClass="btn" text="개인정보 수정" />
+                        <Button mnemonicParsing="false" onAction="#goToUpdatePwScreen" styleClass="btn" text="비밀번호 수정" />
+                        <Button mnemonicParsing="false" onAction="#goToViewInfoScreen" styleClass="btn" text="개인정보 조회" />
+                      <Button mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="22.0" prefWidth="120.0" styleClass="btn" text="로그아웃" />
+                    </items>
+                </ToolBar>
+                <Button layoutX="291.0" layoutY="181.0" mnemonicParsing="false" onAction="#goToSearchMedicineScreen" prefHeight="30.0" prefWidth="174.0" styleClass="btn" text="약 검색" />
+                <Button layoutX="292.0" layoutY="246.0" mnemonicParsing="false" onAction="#goToViewByCategoryScreen" prefHeight="30.0" prefWidth="172.0" styleClass="btn" text="카테고리별 조회" />
+                <Button layoutX="294.0" layoutY="311.0" mnemonicParsing="false" onAction="#goToSearchInfimaryMedicineScreen" prefHeight="30.0" prefWidth="170.0" styleClass="btn" text="보건실 바로가기" />
+                <Button layoutX="295.0" layoutY="377.0" mnemonicParsing="false" onAction="#goToViewMedicineStoredScreen" prefHeight="30.0" prefWidth="168.0" styleClass="btn" text="즐겨찾기" textAlignment="CENTER" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

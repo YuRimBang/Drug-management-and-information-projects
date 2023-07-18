@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1160.0" text="보건실 공지사항 수정" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.AdminUpdateNotice">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="background">
+            <children>
+                <TextField fx:id="titleField" layoutX="134.0" layoutY="253.0" prefHeight="30.0" prefWidth="806.0" />
+                <Label layoutX="99.0" layoutY="260.0" text="제목" />
+                <TextArea fx:id="contentField" layoutX="94.0" layoutY="291.0" prefHeight="234.0" prefWidth="846.0" />
+                <Label layoutX="96.0" layoutY="63.0" text="학교 공지사항" />
+                <ListView fx:id="noticeListField" layoutX="94.0" layoutY="89.0" prefHeight="153.0" prefWidth="846.0" />
+                <Button layoutX="963.0" layoutY="446.0" mnemonicParsing="false" onAction="#updateNotice" prefHeight="26.0" prefWidth="130.0" styleClass="btn" text="수정" />
+                <Button layoutX="960.0" layoutY="498.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="26.0" prefWidth="133.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

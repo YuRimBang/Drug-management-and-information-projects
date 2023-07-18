@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.MedicineShapeMapper">
+    <resultMap id="result" type="MedicineShapeDTO">
+        <result property="itemSeq" column="itemSeq"/>
+        <result property="itemName" column="itemName"/>
+        <result property="entpName" column="entpName"/>
+        <result property="chart" column="chart"/>
+        <result property="printFront" column="printFront"/>
+        <result property="printBack" column="printBack"/>
+        <result property="drugShape" column="drugShape"/>
+        <result property="colorClass1" column="colorClass1"/>
+        <result property="colorClass2" column="colorClass2"/>
+        <result property="etcOtcName" column="etcOtcName"/>
+        <result property="itemImage" column="itemImage"/>
+        <result property="className" column="className"/>
+    </resultMap>
+
+    <insert id="insertMedicineShape" parameterType="MedicineShapeDTO">
+        INSERT INTO medicineshape(itemSeq, itemName, entpName, chart, printFront, printBack, drugShape, colorClass1, colorClass2, etcOtcName, itemImage, className)
+        VALUES (#{itemSeq}, #{itemName}, #{entpName}, #{chart}, #{printFront}, #{printBack}, #{drugShape}, #{colorClass1}, #{colorClass2}, #{etcOtcName}, #{itemImage}, #{className})
+    </insert>
+
+    <select id="selectMedicineShapeBySeq" resultType="MedicineShapeDTO">
+        SELECT *
+        FROM medicineshape
+        WHERE num = #{num}
+    </select>
+
+</mapper>

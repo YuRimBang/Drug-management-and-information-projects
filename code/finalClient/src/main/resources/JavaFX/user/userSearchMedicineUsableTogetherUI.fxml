@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1160.1" text="병용 가능 약품 검색" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.UserSearchMedicineUsableTogether">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="720.0" styleClass="bigBackground">
+            <children>
+                <Label layoutX="60.0" layoutY="108.0" />
+                <TextField fx:id="medicine1Field" layoutX="210.0" layoutY="104.0" />
+                <TextField fx:id="medicine2Field" layoutX="210.0" layoutY="148.0" />
+                <Label layoutX="90.0" layoutY="108.0" text="현재 복용중인 약" />
+                <Label layoutX="90.0" layoutY="150.0" text="복용을 원하는 약" />
+                <Button layoutX="416.0" layoutY="147.0" mnemonicParsing="false" onAction="#inquiryElderlyCautionMedicine" prefWidth="80.0" styleClass="btn" text="검색" />
+                <ListView fx:id="medicineListField" layoutX="90.0" layoutY="188.0" prefHeight="261.0" prefWidth="971.0" />
+                <Button layoutX="945.0" layoutY="484.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="30.0" prefWidth="116.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1160.0" text="관리자 메인화면" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.manager.ManagerMain">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="bigBackground">
+            <children>
+                <Button layoutX="248.0" layoutY="230.0" mnemonicParsing="false" onAction="#goToManagerManageAdminScreen" prefHeight="150.0" prefWidth="150.0" styleClass="btn" text="운영자 관리" />
+                <Button layoutX="520.0" layoutY="230.0" mnemonicParsing="false" onAction="#goToManagerManageUserScreen" prefHeight="150.0" prefWidth="150.0" styleClass="btn" text="회원 관리" />
+                <Button layoutX="782.0" layoutY="230.0" mnemonicParsing="false" onAction="#goToManagerManageInfimaryScreen" prefHeight="150.0" prefWidth="150.0" styleClass="btn" text="보건실 관리" />
+            <Pane layoutX="724.0" layoutY="86.0" prefHeight="63.0" prefWidth="369.0">
+               <children>
+                      <Label fx:id="mm" layoutX="79.0" layoutY="20.0" prefHeight="24.0" prefWidth="146.0" text="관리자" />
+                      <Button layoutX="244.0" layoutY="17.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="30.0" prefWidth="112.0" styleClass="btn" text="로그아웃" />
+               </children>
+            </Pane>
+            </children></AnchorPane>
+    </content>
+</TitledPane>

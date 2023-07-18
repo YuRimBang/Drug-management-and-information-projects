@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="720.0" text="비밀번호 수정" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.UserUpdatePw">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="720.0" styleClass="background">
+            <children>
+                <TextField fx:id="pwField" layoutX="332.0" layoutY="186.0" />
+                <TextField fx:id="newPwField" layoutX="332.0" layoutY="251.0" />
+                <Label layoutX="222.0" layoutY="191.0" text="현재 비밀번호" />
+                <Label layoutX="215.0" layoutY="256.0" text="새로운 비밀번호" />
+                <Button onAction="#updatePw" layoutX="255.0" layoutY="368.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="103.0" styleClass="btn" text="확인" />
+                <Button layoutX="372.0" layoutY="368.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="26.0" prefWidth="103.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

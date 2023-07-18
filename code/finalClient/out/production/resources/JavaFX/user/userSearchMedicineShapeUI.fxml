@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="719.0" text="약 모양 검색" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.UserSearchMedicineShape">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="background">
+            <children>
+                <TextField fx:id="markField" layoutX="186.0" layoutY="122.0" prefHeight="29.0" prefWidth="100.0" />
+                <Label layoutX="126.0" layoutY="90.0" text="색상" />
+                <Label layoutX="325.0" layoutY="90.0" text="모양" />
+                <Label layoutX="126.0" layoutY="130.0" text="표시" />
+                <Button fx:id="searchBtn" layoutX="513.0" layoutY="126.0" mnemonicParsing="false" prefWidth="80.0" styleClass="btn" text="검색" />
+                <ChoiceBox fx:id="colorBox" layoutX="186.0" layoutY="85.0" prefWidth="100.0" />
+                <ChoiceBox fx:id="shapeBox" layoutX="385.0" layoutY="85.0" prefWidth="100.0" />
+                <ChoiceBox fx:id="chartBox" layoutX="385.0" layoutY="126.0" prefWidth="100.0" />
+                <Label layoutX="325.0" layoutY="130.0" text="제형" />
+                <Label fx:id="count" layoutX="650.0" layoutY="82.0" text="0개" />
+                <ListView fx:id="medicineListField" layoutX="86.0" layoutY="166.0" prefHeight="232.0" prefWidth="546.0" />
+                <Button layoutX="86.0" layoutY="409.0" mnemonicParsing="false" onAction="#showImage" prefWidth="90.0" styleClass="btn" text="약 이미지" />
+                <Button layoutX="552.0" layoutY="409.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefWidth="90.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

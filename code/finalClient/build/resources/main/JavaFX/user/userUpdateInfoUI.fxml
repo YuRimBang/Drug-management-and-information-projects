@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="720.0" text="개인정보 수정" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.UserUpdateInfo">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="720.0" styleClass="background">
+            <children>
+                <Label layoutX="247.0" layoutY="176.0" text="이름" />
+                <TextField fx:id="nameField" layoutX="315.0" layoutY="171.0" />
+                <Label layoutX="232.0" layoutY="226.0" text="전화번호" />
+                <TextField fx:id="phoneNumField" layoutX="315.0" layoutY="221.0" />
+                <Label layoutX="247.0" layoutY="275.0" text="학교" />
+                <ChoiceBox fx:id="schoolBox" layoutX="315.0" layoutY="270.0" prefHeight="29.0" prefWidth="172.0" />
+                <Button layoutX="254.0" layoutY="385.0" mnemonicParsing="false" onAction="#updateinfo" prefHeight="26.0" prefWidth="103.0" styleClass="btn" text="확인" />
+                <Button layoutX="368.0" layoutY="385.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="26.0" prefWidth="103.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

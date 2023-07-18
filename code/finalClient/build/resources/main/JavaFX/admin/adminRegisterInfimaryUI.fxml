@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TitledPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="720.0" text="학교 보건실 등록" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.AdminRegisterInfirmary">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="background">
+            <children>
+                <Text layoutX="208.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="학교명" textAlignment="CENTER" wrappingWidth="82.36873817443848" />
+                <TextField fx:id="schoolField" layoutX="322.0" layoutY="144.0" prefHeight="26.0" prefWidth="180.0" />
+                <Text layoutX="202.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="보건실 위치" textAlignment="CENTER" wrappingWidth="94.36873817443848" />
+                <TextField fx:id="locationField" layoutX="322.0" layoutY="199.0" prefHeight="26.0" prefWidth="180.0" />
+                <Text layoutX="181.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="보건실 전화번호" textAlignment="CENTER" wrappingWidth="130.36873817443848" />
+                <TextField fx:id="infirmaryPhoneNumField" layoutX="324.0" layoutY="253.0" prefHeight="26.0" prefWidth="180.0" />
+                <Text layoutX="167.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="보건실 운영 증명서" textAlignment="CENTER" wrappingWidth="143.36873817443848" />
+                <Button layoutX="537.0" layoutY="361.0" onAction="#chooseImage" text="파일선택" />
+                <TextField fx:id="fileTextField" layoutX="331.0" layoutY="359.0" prefHeight="26.0" prefWidth="166.0" />
+                <Button layoutX="272.0" layoutY="458.0" mnemonicParsing="false" onAction="#registerInfirmary" prefHeight="25.0" prefWidth="80.0" styleClass="btn" text="확인" textAlignment="CENTER" />
+                <Text layoutX="174.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="운영시간" textAlignment="CENTER" wrappingWidth="143.36873817443848" />
+                <ChoiceBox fx:id="hour1Field" layoutX="303.0" layoutY="309.0" prefHeight="22.0" prefWidth="37.0" />
+                <ChoiceBox fx:id="minute1Field" layoutX="374.0" layoutY="309.0" prefHeight="22.0" prefWidth="37.0" />
+                <ChoiceBox fx:id="hour2Field" layoutX="467.0" layoutY="308.0" prefHeight="22.0" prefWidth="37.0" />
+                <ChoiceBox fx:id="minute2Field" layoutX="531.0" layoutY="309.0" prefHeight="22.0" prefWidth="37.0" />
+                <Label layoutX="292.0" layoutY="105.0" text="&lt;학교 보건실 등록 요청서&gt;" />
+                <Button layoutX="374.0" layoutY="458.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="26.0" prefWidth="105.0" styleClass="btn" text="뒤로가기" textAlignment="CENTER" />
+                <Label layoutX="353.0" layoutY="313.0" text="시" />
+                <Label layoutX="422.0" layoutY="313.0" text="분" />
+                <Label layoutX="450.0" layoutY="313.0" text="~" />
+                <Label layoutX="512.0" layoutY="313.0" text="시" />
+                <Label layoutX="580.0" layoutY="313.0" text="분" />
+            </children>
+        </AnchorPane>
+    </content>
+</TitledPane>

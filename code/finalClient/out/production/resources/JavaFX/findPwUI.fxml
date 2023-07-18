@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="719.0" text="비밀번호 찾기" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FindPw">
+    <stylesheets>
+        <URL value="@css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="720.0" styleClass="background">
+            <children>
+                <Label layoutX="244.0" layoutY="195.0" text="아이디" />
+                <TextField fx:id="idField" layoutX="320.0" layoutY="190.0" />
+                <Label layoutX="251.0" layoutY="262.0" text="이름" />
+                <TextField fx:id="nameField" layoutX="320.0" layoutY="257.0" />
+                <Label layoutX="236.0" layoutY="327.0" text="전화번호" />
+                <TextField fx:id="phoneNumField" layoutX="320.0" layoutY="322.0" />
+                <ListView fx:id="pwField" layoutX="245.0" layoutY="371.0" prefHeight="30.0" prefWidth="237.0" />
+                <Button layoutX="243.0" layoutY="423.0" mnemonicParsing="false" onAction="#findPw" prefHeight="30.0" prefWidth="109.0" styleClass="btn" text="찾기" />
+                <Button layoutX="366.0" layoutY="423.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="30.0" prefWidth="116.0" styleClass="btn" text="뒤로가기" />
+            </children>
+        </AnchorPane>
+    </content>
+</TitledPane>

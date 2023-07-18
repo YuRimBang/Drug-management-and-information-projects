@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="720.0" text="이용자 회원가입" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.user.UserSignUp">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="720.0" styleClass="background">
+            <children>
+                <Label layoutX="239.0" layoutY="101.0" text="아이디" />
+                <TextField fx:id="idField" layoutX="315.0" layoutY="96.0" prefWidth="220.0"/>
+                <Label layoutX="232.0" layoutY="151.0" text="비밀번호" />
+                <TextField fx:id="pwField" layoutX="315.0" layoutY="146.0" prefWidth="220.0"/>
+                <Label layoutX="247.0" layoutY="202.0" text="이름" />
+                <TextField fx:id="nameField" layoutX="315.0" layoutY="197.0" prefWidth="220.0"/>
+                <Label layoutX="232.0" layoutY="252.0" text="전화번호" />
+                <TextField fx:id="phoneNumField" layoutX="315.0" layoutY="247.0" prefWidth="220.0"/>
+                <Label layoutX="240.0" layoutY="348.0" text="학교명" />
+                <ChoiceBox fx:id="schoolBox" layoutX="315.0" layoutY="343.0" prefHeight="29.0" prefWidth="220.0" />
+                <Button layoutX="266.0" layoutY="411.0" mnemonicParsing="false" onAction="#signUp" prefHeight="26.0" prefWidth="103.0" styleClass="btn" text="확인" />
+                <Button layoutX="376.0" layoutY="411.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="26.0" prefWidth="103.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

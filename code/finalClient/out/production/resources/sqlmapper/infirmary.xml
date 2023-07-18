@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.InfirmaryMapper">
+    <resultMap id="infirmaryResult" type="InfirmaryDTO">
+        <result property="pk" column="pk"/>
+        <result property="admin_pk" column="admin_pk"/>
+        <result property="school" column="school"/>
+        <result property="location" column="location"/>
+        <result property="infirmary_phone_num" column="infirmary_phone_num"/>
+        <result property="infirmary_certificate_check" column="infirmary_certificate_check"/>
+        <result property="open_time" column="open_time"/>
+        <result property="close_time" column="close_time"/>
+        <result property="file" column="file"/>
+    </resultMap>
+
+
+    <select id="isPhoneNumDuplicateCheck" parameterType="Map" resultType="int">
+        SELECT COUNT(*) FROM infirmary WHERE infirmary_phone_num = #{infirmary_phone_num}
+    </select>
+
+    <select id="selectAdminName" resultType="String" parameterType="Map">
+        SELECT admin.name
+        FROM infirmary
+        JOIN admin ON infirmary.admin_pk = admin.pk
+        WHERE infirmary.admin_pk = #{admin_pk}
+    </select>
+
+    <select id="selectAdminPhoneNum" resultType="String" parameterType="InfirmaryDTO">
+        SELECT a.phone_num FROM infirmary i JOIN admin a ON i.admin_pk = a.pk where school = #{school};
+    </select>
+
+    <select id="selectInfirmaryInfo" parameterType="InfirmaryDTO" resultMap="infirmaryResult">
+        SELECT * FROM infirmary where school = #{school};
+    </select>
+
+    <select id="selectInfirmaryInfoByAdminPk" parameterType="InfirmaryDTO" resultMap="infirmaryResult">
+        SELECT * FROM infirmary where admin_pk = #{admin_pk};
+    </select>
+
+    <select id="selectAdminPk"  parameterType="int" resultType="int">
+        SELECT admin_pk FROM infirmary where pk = #{pk};
+    </select>
+
+    <insert id="insertInfirmary" parameterType="InfirmaryDTO">
+        INSERT INTO infirmary(admin_pk, school, location, infirmary_phone_num, open_time, close_time, file)
+        VALUES (#{admin_pk}, #{school}, #{location}, #{infirmary_phone_num}, #{open_time}, #{close_time}, #{file})
+    </insert>
+
+    <update id="updateInfirmaryInfo" parameterType="InfirmaryDTO">
+        update infirmary set
+        open_time = case when #{open_time} != open_time and #{open_time} is not null then #{open_time} else open_time end,
+        close_time = case when #{close_time} != close_time and #{close_time} is not null then #{close_time} else close_time end,
+        infirmary_phone_num = case when #{infirmary_phone_num} != infirmary_phone_num and #{infirmary_phone_num} is not null then #{infirmary_phone_num} else infirmary_phone_num end
+        where admin_pk = #{admin_pk}
+    </update>
+
+    <!--ManagerDAO-->
+
+    <select id="NotApprovedInfirmaryAll" resultType="InfirmaryDTO">
+        SELECT *
+        FROM infirmary
+        WHERE infirmary_certificate_check = 0
+    </select>
+
+    <select id="infirmaryAll" resultType="InfirmaryDTO">
+        SELECT *
+        FROM infirmary
+      //  WHERE infirmary_certificate_check
+    </select>
+
+    <select id="selectInfirmary" resultType="InfirmaryDTO">
+        SELECT *
+        FROM infirmary
+        WHERE `school` LIKE CONCAT('%', #{school}, '%') AND infirmary_certificate_check = 1
+    </select>
+
+    <update id="acceptInfirmary" parameterType="InfirmaryDTO">
+        UPDATE infirmary
+        SET infirmary_certificate_check=true
+        WHERE pk = #{pk}
+    </update>
+
+    <delete id="deleteInfirmary" parameterType="Map">
+        DELETE FROM infirmary
+        WHERE pk = #{pk}
+    </delete>
+
+    <select id="getInfirmaryPkByAdminPk" resultType="int">
+        SELECT pk FROM infirmary WHERE admin_pk = #{admin_pk}
+    </select>
+
+    <select id="getSchoolNameByAdminPk" resultType="String">
+        SELECT school FROM infirmary WHERE admin_pk = #{admin_pk}
+    </select>
+
+    <delete id="deleteInfirmaryPK">
+        DELETE FROM infirmary_alarm WHERE pk = #{pk}
+    </delete>
+
+    <select id="selectInfirmaryFile" parameterType="Map" resultType="Byte[]">
+        SELECT file FROM infirmary WHERE pk = #{pk}
+    </select>
+
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="720.0" text="보건실 정보 조회" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.AdminViewInfirmaryInfo">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="720.0" styleClass="background">
+            <children>
+                <Label layoutX="266.0" layoutY="123.0" text="학교 이름:" />
+                <Label layoutX="259.0" layoutY="171.0" text="보건실 위치:" />
+                <Label layoutX="249.0" layoutY="229.0" text="보건실 전화번호:" />
+                <Label layoutX="268.0" layoutY="287.0" text="운영시간:" />
+                <Label layoutX="258.0" layoutY="349.0" text="운영자 이름 : " />
+                <Button layoutX="306.0" layoutY="440.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="26.0" prefWidth="106.0" styleClass="btn" text="뒤로가기" />
+                <Text fx:id="schoolText" layoutX="386.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXXXXX" wrappingWidth="145.6513671875" />
+                <Text fx:id="locationText" layoutX="386.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX-XXX-XXXX" wrappingWidth="145.6513671875" />
+                <Text fx:id="infirmaryPhoneNum" layoutX="386.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXXXXX" wrappingWidth="145.6513671875" />
+                <Text fx:id="nameText" layoutX="386.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XXX" wrappingWidth="145.6513671875" />
+                <Text fx:id="operatingTimeText" layoutX="386.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XX:XX~XX:XX" wrappingWidth="269.6513671875" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

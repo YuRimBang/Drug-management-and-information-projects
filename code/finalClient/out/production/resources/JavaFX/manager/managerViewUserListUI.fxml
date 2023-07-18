@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1160.0" text="회원 목록" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.manager.ManagerViewUserList">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="background">
+            <children>
+                <Label layoutX="95.0" layoutY="64.0" text="&lt;등록된 회원 목록&gt;" />
+                <ListView fx:id="userListField" layoutX="95.0" layoutY="95.0" prefHeight="393.0" prefWidth="990.0" />
+                <Button layoutX="981.0" layoutY="500.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="24.0" prefWidth="104.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

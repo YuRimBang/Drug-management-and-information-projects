@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1160.0" text="보건실 승인" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.manager.ManagerApprovalInfirmary">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="background">
+            <children>
+                <ListView fx:id="infirmaryListField" layoutX="86.0" layoutY="100.0" prefHeight="347.0" prefWidth="994.0" />
+                <Label layoutX="86.0" layoutY="61.0" text="&lt;보건실 등록 요청 목록&gt;" />
+                <Button layoutX="745.0" layoutY="460.0" mnemonicParsing="false" onAction="#showImage" prefHeight="24.0" prefWidth="137.0" styleClass="btn" text="운영 증명서 확인" />
+                <Button layoutX="900.0" layoutY="460.0" mnemonicParsing="false" onAction="#acceptInfirmary" prefWidth="80.0" styleClass="btn" text="승인" />
+                <Button layoutX="1000.0" layoutY="460.0" mnemonicParsing="false" onAction="#deleteSelectedInfirmary" prefWidth="80.0" styleClass="btn" text="거절" />
+                <Button layoutX="960.0" layoutY="500.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="24.0" prefWidth="119.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

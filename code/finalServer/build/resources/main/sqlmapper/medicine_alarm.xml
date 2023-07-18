@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.MedicineAlarmMapper">
+    <resultMap id="medicineAlarmResult" type="MedicineAlarmDTO">
+        <result property="pk" column="pk"/>
+        <result property="bookmark_pk" column="bookmark_pk"/>
+        <result property="user_pk" column="user_pk"/>
+        <result property="infirmary_pk" column="infirmary_pk"/>
+        <result property="medicine_pk" column="medicine_pk"/>
+        <result property="start_period" column="start_period"/>
+        <result property="end_period" column="end_period"/>
+        <result property="time" column="time"/>
+    </resultMap>
+
+    <insert id="insertMedicineAlarm" parameterType="MedicineAlarmDTO">
+        INSERT INTO medicine_alarm(bookmark_pk, user_pk, start_period, end_period, time)
+        VALUES (#{bookmark_pk}, #{user_pk}, #{start_period}, #{end_period}, #{time})
+    </insert>
+
+    <update id="changeInfirmaryPK">
+        UPDATE medicine_alarm
+        set infirmary_pk = #{infirmary_pk}
+        WHERE infirmary_pk = #{before}
+    </update>
+
+    <delete id="deleteUser" parameterType="Map">
+        DELETE FROM medicine_alarm WHERE bookmark_pk IN (SELECT pk FROM medicine_bookmark WHERE infirmary_pk = (SELECT infirmary_pk FROM user WHERE pk = #{pk}));
+    </delete>
+
+    <delete id="deleteUserMed" parameterType="int">
+        DELETE FROM medicine_alarm WHERE pk = #{pk}
+    </delete>
+
+    <select id="selectUserMed" parameterType="Map" resultType="int">
+        SELECT pk
+        FROM medicine_alarm
+        WHERE user_pk = #{user_pk} AND bookmark_pk = #{bookmark_pk} AND time=#{time, jdbcType=TIME}
+    </select>
+</mapper>

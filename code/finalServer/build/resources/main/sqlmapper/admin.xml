@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.AdminMapper">
+    <resultMap id="result" type="AdminDTO">
+        <result property="pk" column="pk"/>
+        <result property="status" column="status"/>
+        <result property="id" column="id"/>
+        <result property="pw" column="pw"/>
+        <result property="name" column="name"/>
+        <result property="phone_num" column="phone_num"/>
+        <result property="certificate_check" column="certificate_check"/>
+        <result property="file" column="file"/>
+    </resultMap>
+
+    <select id="selectAdminFile" parameterType="Map" resultType="Byte[]">
+        SELECT file FROM admin WHERE pk = #{pk}
+    </select>
+
+    <select id="selectAdminFileByPk" parameterType="Map" resultType="Byte[]">
+        SELECT file FROM admin WHERE pk = #{pk}
+    </select>
+
+    <select id="isIdDuplicateCheck" parameterType="Map" resultType="int">
+        SELECT COUNT(*) FROM admin WHERE id = #{id}
+    </select>
+
+    <select id="isPhoneNumDuplicateCheck" parameterType="Map" resultType="int">
+        SELECT COUNT(*) FROM admin WHERE phone_num = #{phone_num}
+    </select>
+
+    <insert id="insertAdmin" parameterType="AdminDTO">
+        INSERT INTO admin(id, pw, name, phone_num, file)
+        VALUES (#{id}, #{pw}, #{name}, #{phone_num}, #{file})
+    </insert>
+
+    <select id="login" resultType="AdminDTO">
+        SELECT * FROM admin WHERE id = #{id} AND pw = #{pw} AND certificate_check = 1
+    </select>
+
+    <select id="selectId" resultType="Object" parameterType="Map">
+        SELECT id FROM admin WHERE name = #{name} AND phone_num = #{phone_num}
+    </select>
+
+    <select id="selectPw" resultType="Object" parameterType="Map">
+        SELECT pw FROM admin WHERE id = #{id} AND name = #{name} AND phone_num = #{phone_num}
+    </select>
+
+    <update id="updateAdminInfo" parameterType="AdminDTO">
+        update admin set
+        name = case when #{name} != name and #{name} is not null then #{name} else name end,
+        phone_num = case when #{phone_num} != phone_num and #{phone_num} is not null then #{phone_num} else phone_num end
+        where pk = #{pk}
+    </update>
+
+    <select id="selectPwForUpdate" resultType="String">
+        SELECT pw FROM admin WHERE pk = #{pk}
+    </select>
+
+    <update id="updatePw" parameterType="AdminDTO">
+        update admin set pw = #{pw} where pk = #{pk}
+    </update>
+
+    <select id="selectAdminInfo" resultType="AdminDTO">
+        SELECT * FROM admin where pk = #{pk}
+    </select>
+
+    <select id="selectName" resultType="String">
+        SELECT name FROM admin where pk = #{pk}
+    </select>
+
+    <!--ManagerDAO-->
+    <select id="NotApprovedAdminAll" resultType="AdminDTO">
+        SELECT *
+        FROM admin
+        WHERE certificate_check = 0
+    </select>
+
+    <select id="checkedAdminAll" resultType="AdminDTO">
+        SELECT *
+        FROM admin
+        WHERE certificate_check = 1
+    </select>
+
+    <select id="selectAdmin" resultType="AdminDTO">
+        SELECT *
+        FROM admin
+        WHERE certificate_check = 1
+        <if test="name != null and name != ''">
+            AND `name` LIKE CONCAT('%', #{name}, '%')
+        </if>
+        <if test="phone_num != null and phone_num != ''">
+            AND phone_num = #{phone_num}
+        </if>
+    </select>
+
+    <update id="acceptAdmin" parameterType="Map">
+        UPDATE admin
+        SET certificate_check=true
+        WHERE pk = #{pk}
+    </update>
+
+    <delete id="deleteAdmin">
+        DELETE FROM admin WHERE pk = #{pk}
+    </delete>
+
+</mapper>

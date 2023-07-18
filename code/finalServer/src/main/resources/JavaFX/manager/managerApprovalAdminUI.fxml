@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1160.0" text="운영자 승인" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.manager.ManagerApprovalAdmin">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="background">
+            <children>
+                <ListView fx:id="adminListField" layoutX="86.0" layoutY="100.0" prefHeight="352.0" prefWidth="994.0" />
+                <Label layoutX="86.0" layoutY="61.0" text="&lt;운영자 등록 요청 목록&gt;" />
+                <Button layoutX="758.0" layoutY="460.0" mnemonicParsing="false" onAction="#showImage" prefHeight="24.0" prefWidth="137.0" styleClass="btn" text="재직 증명서 확인" />
+                <Button layoutX="908.0" layoutY="460.0" mnemonicParsing="false" onAction="#acceptAdmin" prefWidth="80.0" styleClass="btn" text="승인" />
+                <Button layoutX="1000.0" layoutY="460.0" mnemonicParsing="false" onAction="#deleteSelectedAdmin" prefWidth="80.0" styleClass="btn" text="거절" />
+                <Button layoutX="988.0" layoutY="500.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="24.0" prefWidth="92.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

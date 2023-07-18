@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.ThismedicineMapper">
+    <resultMap id="result" type="ThisMedicineDTO">
+        <result property="itemSeq" column="itemSeq"/>
+        <result property="itemName" column="itemName"/>
+        <result property="entpName" column="entpName"/>
+        <result property="efcyQesitm" column="efcyQesitm"/>
+        <result property="useMethodQesitm" column="useMethodQesitm"/>
+        <result property="atpnWarnQesitm" column="atpnWarnQesitm"/>
+        <result property="atpnQesitm" column="atpnQesitm"/>
+        <result property="intrcQesitm" column="intrcQesitm"/>
+        <result property="seQesitm" column="seQesitm"/>
+        <result property="depositMethodQesitm" column="depositMethodQesitm"/>
+        <result property="itemImage" column="itemImage"/>
+    </resultMap>
+
+    <insert id="insertThismedicine" parameterType="ThisMedicineDTO">
+        INSERT INTO thismedicine(itemSeq, itemName, entpName, efcyQesitm, useMethodQesitm, atpnWarnQesitm, atpnQesitm, intrcQesitm, seQesitm, depositMethodQesitm, itemImage)
+        VALUES (#{itemSeq}, #{itemName}, #{entpName}, #{efcyQesitm}, #{useMethodQesitm}, #{atpnWarnQesitm}, #{atpnQesitm}, #{intrcQesitm}, #{seQesitm}, #{depositMethodQesitm}, #{itemImage})
+    </insert>
+
+    <select id="selectThismedicineBySeq" parameterType="String" resultType="ThisMedicineDTO">
+        SELECT *
+        FROM thismedicine
+        WHERE itemSeq = #{itemSeq}
+    </select>
+    
+    <select id="selectThismedicineByNum" resultType="ThisMedicineDTO">
+        SELECT *
+        FROM thismedicine
+        WHERE Num = #{Num}
+    </select>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1159.0" text="회원 관리" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.manager.ManagerManageUser">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="bigBackground">
+            <children>
+                <TextField fx:id="idField" layoutX="96.0" layoutY="81.0" prefHeight="30.0" prefWidth="150.0" promptText="회원 이름" />
+                <TextField fx:id="phoneNumField" layoutX="255.0" layoutY="81.0" prefHeight="30.0" prefWidth="150.0" promptText="회원 전화번호" />
+                <Button layoutX="430.0" layoutY="83.0" mnemonicParsing="false" onAction="#searchUser" prefHeight="25.0" prefWidth="80.0" styleClass="btn" text="검색" />
+                <ListView fx:id="userListField" layoutX="96.0" layoutY="130.0" prefHeight="403.0" prefWidth="828.0" />
+                <Button layoutX="945.0" layoutY="130.0" mnemonicParsing="false" onAction="#goToViewUserListScreen" prefHeight="30.0" prefWidth="137.0" styleClass="btn" text="회원 목록" />
+                <Button fx:id="deleteUserButton" layoutX="942.0" layoutY="177.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="143.0" styleClass="btn" text="회원 삭제" />
+                <Button layoutX="938.0" layoutY="500.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="30.0" prefWidth="151.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

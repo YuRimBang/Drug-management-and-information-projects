@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="719.0" text="아이디 찾기" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FindId">
+    <stylesheets>
+        <URL value="@css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="720.0" styleClass="background">
+            <children>
+                <TextField fx:id="nameField" layoutX="320.0" layoutY="224.0" />
+                <TextField fx:id="phoneNumField" layoutX="320.0" layoutY="289.0" />
+                <Label layoutX="251.0" layoutY="229.0" text="이름" />
+                <Label layoutX="236.0" layoutY="294.0" text="전화번호" />
+                <Button layoutX="247.0" layoutY="395.0" mnemonicParsing="false" onAction="#findId" prefHeight="30.0" prefWidth="105.0" styleClass="btn" text="찾기" />
+                <Button layoutX="366.0" layoutY="395.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="30.0" prefWidth="115.0" styleClass="btn" text="뒤로가기" />
+                <ListView fx:id="idField" layoutX="250.0" layoutY="339.0" prefHeight="30.0" prefWidth="230.0" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

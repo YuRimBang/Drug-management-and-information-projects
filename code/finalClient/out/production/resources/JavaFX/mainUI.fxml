@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="720.1" text="이약모약" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainCon">
+    <stylesheets>
+        <URL value="@css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="720.0" styleClass="main_background">
+            <children>
+                <PasswordField fx:id="pwField" layoutX="310.0" layoutY="224.0" />
+                <TextField fx:id="idField" layoutX="310.0" layoutY="170.0" />
+                <Label layoutX="243.0" layoutY="175.0" styleClass="font" text="아이디" />
+
+                <Label layoutX="236.0" layoutY="229.0" text="비밀번호" />
+                <Button layoutX="239.0" layoutY="394.0" mnemonicParsing="false" onAction="#goToFindIdScreen" prefHeight="30.0" prefWidth="113.0" styleClass="btn" text="아이디 찾기" />
+                <Button layoutX="358.0" layoutY="394.0" mnemonicParsing="false" onAction="#goToFindPwScreen" prefHeight="30.0" prefWidth="126.0" styleClass="btn" text="비밀번호 찾기" />
+                <Button layoutX="243.0" layoutY="312.0" mnemonicParsing="false" onAction="#login" prefHeight="30.0" prefWidth="238.0" styleClass="btn" text="로그인" />
+                <Button layoutX="243.0" layoutY="354.0" mnemonicParsing="false" onAction="#goToSignUpScreen" prefHeight="30.0" prefWidth="239.0" styleClass="btn" text="회원가입" />
+            </children>
+        </AnchorPane>
+    </content>
+</TitledPane>

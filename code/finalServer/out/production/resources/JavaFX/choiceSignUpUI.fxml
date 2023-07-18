@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560" prefWidth="719" text="회원가입선택" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ChoiceSignUp">
+    <stylesheets>
+        <URL value="@css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="720.0" styleClass="background">
+            <children>
+                <Button layoutX="192.0" layoutY="177.0" mnemonicParsing="false" onAction="#goToUserSignUpScreen" prefHeight="196.0" prefWidth="162.0" styleClass="btn" text="이용자" />
+                <Button layoutX="375.0" layoutY="177.0" mnemonicParsing="false" onAction="#goToAdminSignUpScreen" prefHeight="196.0" prefWidth="162.0" styleClass="btn" text="운영자" />
+                <Button layoutX="526.0" layoutY="439.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="30.0" prefWidth="105.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.MedicineMapper">
+    <resultMap id="medicineResult" type="RefineData">
+        <result property="seqNum" column="seqNum"/>
+        <result property="itemName" column="itemName"/>
+        <result property="entpName" column="entpName"/>
+        <result property="mainIngr" column="mainIngr"/>
+        <result property="className" column="className"/>
+        <result property="etcOtcName" column="etcOtcName"/>
+        <result property="efficacy" column="efficacy"/>
+        <result property="use" column="useMethod"/>
+        <result property="caution" column="caution"/>
+        <result property="cautionPeople" column="cautionPeople"/>
+        <result property="intrc" column="intrc"/>
+        <result property="sideEffect" column="sideEffect"/>
+        <result property="storage" column="storage"/>
+        <result property="image" column="image"/>
+        <result property="chart" column="chart"/>
+        <result property="printFront" column="printFront"/>
+        <result property="printBack" column="printBack"/>
+        <result property="drugShape" column="drugShape"/>
+        <result property="colorClassFront" column="colorClassFront"/>
+        <result property="colorClassBack" column="colorClassBack"/>
+        <result property="validTerm" column="validTerm"/>
+    </resultMap>
+
+
+    <!--일련번호 로 약 검 색-->
+    <select id="selectMedicineBySeqNum" parameterType="Map" resultType="RefineData">
+        SELECT *
+        FROM medicine
+        WHERE seqNum = #{seqNum}
+    </select>
+
+    <insert id="insertMedicine" parameterType="RefineData">
+        INSERT IGNORE INTO medicine(seqNum, itemName, entpName, mainIngr, className, etcOtcName, efficacy, useMethod, caution, cautionPeople,
+        intrc, sideEffect, storage, image, chart, printFront, printBack, drugShape, colorClassFront, colorClassBack, validTerm)
+        VALUES (#{seqNum}, #{itemName}, #{entpName}, #{mainIngr}, #{className}, #{etcOtcName}, #{efficacy}, #{useMethod}, #{caution}, #{cautionPeople},
+        #{intrc}, #{sideEffect}, #{storage}, #{image}, #{chart}, #{printFront}, #{printBack}, #{drugShape}, #{colorClassFront}, #{colorClassBack}, #{validTerm})
+    </insert>
+
+    <select id="selectMedicine">
+        SELECT * FROM medicine
+    </select>
+
+    <select id="selectNameBySeqNum" resultType="String" parameterType="String">
+        SELECT itemName
+        FROM medicine
+        WHERE seqNum = #{seqNum}
+    </select>
+
+    <select id="selectSeqNumByName" resultType="String" parameterType="String">
+        SELECT seqNum
+        FROM medicine
+        WHERE itemName = #{itemName}
+    </select>
+
+    <select id="selectMedicineImageByName" resultType="Object" parameterType="Map">
+        SELECT image
+        FROM medicine
+        WHERE itemName = #{itemName}
+    </select>
+
+    <select id="selectMedicineName" resultType="RefineData">
+        SELECT mainIngr
+        FROM medicine
+        WHERE `itemName` LIKE CONCAT('%', #{name}, '%')
+    </select>
+
+<!--    제품명으로 약 검색-->
+    <select id="selectMedicineByName" resultType="RefineData" parameterType="Map">
+        SELECT *
+        FROM medicine
+        WHERE `itemName` LIKE CONCAT('%', #{itemName}, '%')
+    </select>
+
+    <select id="selectMedicineCombination" resultType="RefineData">
+        SELECT *
+        FROM medicine
+        WHERE `itemName` LIKE CONCAT('%', #{name}, '%') AND (`caution` LIKE CONCAT('%', #{ingr}, '%') OR `cautionPeople` LIKE CONCAT('%', #{ingr}, '%') OR `intrc` LIKE CONCAT('%', #{ingr}, '%')
+    </select>
+    
+    <select id="selectMedicineSeq" resultType="RefineData">
+        SELECT *
+        FROM medicine
+        WHERE seqNum = #{itemSeq}
+    </select>
+
+    <update id="updateMedicineShape" parameterType="RefineData">
+        UPDATE medicine
+        SET
+        chart = #{chart},
+        printFront = #{printFront},
+        printBack = #{printBack},
+        drugShape = #{drugShape},
+        colorClassFront = #{colorClassFront},
+        colorClassBack = #{colorClassBack},
+        image = #{image}
+        WHERE seqNum = #{seqNum};
+    </update>
+
+    <insert id="insertRefineData">
+        INSERT IGNORE INTO `medicine` (
+        `seqNum`,
+        `itemName`,
+        `entpName`,
+        `mainIngr`,
+        `className`,
+        `etcOtcName`,
+        `efficacy`,
+        `useMethod`,
+        `caution`,
+        `intrc`,
+        `sideEffect`,
+        `storage`,
+        `image`,
+        `chart`,
+        `printFront`,
+        `printBack`,
+        `drugShape`,
+        `colorClassFront`,
+        `colorClassBack`
+        )
+        SELECT
+        `detailinfo`.`itemSeq`,
+        `detailinfo`.`itemName`,
+        `detailinfo`.`entpName`,
+        `detailinfo`.`mainIngr`,
+        `detailinfo`.`classNoName`,
+        `detailinfo`.`etcOtcName`,
+        `detailinfo`.`eeDocData`,
+        `detailinfo`.`udDocData`,
+        `detailinfo`.`nbDocData`,
+        `thismedicine`.`intrcQesitm`,
+        `thismedicine`.`seQesitm`,
+        `thismedicine`.`depositMethodQesitm`,
+        `thismedicine`.`itemImage`,
+        `medicineshape`.`chart`,
+        `medicineshape`.`printFront`,
+        `medicineshape`.`printBack`,
+        `medicineshape`.`drugShape`,
+        `medicineshape`.`colorClass1`,
+        `medicineshape`.`colorClass2`
+        FROM
+        `detailinfo`
+        LEFT JOIN
+        `thismedicine` ON `detailinfo`.`itemSeq` = `thismedicine`.`itemSeq`
+        LEFT JOIN
+        `medicineshape` ON `detailinfo`.`itemSeq` = `medicineshape`.`itemSeq`;
+    </insert>
+
+
+    <!--노약자주의 약-->
+    <select id = "selectCautionMedicine" resultType="RefineData" parameterType="Map">
+        SELECT *
+        FROM `medicine`
+        WHERE (`cautionPeople` LIKE '%고령자%'
+        OR `cautionPeople` LIKE '%노인%'
+        OR `cautionPeople` LIKE '%임신%'
+        OR `cautionPeople` LIKE '%임부%'
+        OR `cautionPeople` LIKE '%수유%'
+        OR `cautionPeople` LIKE '%어린이%'
+        OR `cautionPeople` LIKE '%젖먹이%'
+        OR `cautionPeople` LIKE '%유아%'
+        OR `cautionPeople` LIKE '%소아%'
+        OR `cautionPeople` LIKE '%영아%')
+        AND `itemName` LIKE CONCAT('%', #{itemName}, '%');
+    </select>
+
+
+    <!--    약 모양 검색-->
+    <select id = "selectMedicineByShape" resultType="RefineData">
+        SELECT *
+        FROM `medicine`
+        WHERE (`chart` LIKE CONCAT('%', #{chart}, '%') OR #{chart} IS NULL)
+        AND ((`printFront` LIKE CONCAT('%', #{printFront}, '%') OR #{printFront} IS NULL)
+        OR (`printBack` LIKE CONCAT('%', #{printBack}, '%') OR #{printBack} IS NULL))
+        AND (`drugShape` LIKE CONCAT('%', #{drugShape}, '%') OR #{drugShape} IS NULL)
+        AND ((`colorClassFront` LIKE CONCAT('%', #{colorClassFront}, '%') OR #{colorClassFront} IS NULL)
+        OR (`colorClassBack` LIKE CONCAT('%', #{colorClassBack}, '%') OR #{colorClassBack} IS NULL));
+    </select>
+
+    <!--노인 주의 약품-->
+    <select id = "selectElderlyMedicine" resultType="RefineData">
+        SELECT *
+        FROM `medicine`
+        WHERE `cautionPeople` LIKE '%고령자%' OR `cautionPeople` LIKE '%노인%';
+    </select>
+
+    <select id = "selectElderlyMedicineByName" resultType="RefineData" parameterType="Map">
+        SELECT *
+        FROM `medicine`
+        WHERE (`cautionPeople` LIKE '%고령자%' OR `cautionPeople` LIKE '%노인%')
+        AND `itemName` LIKE CONCAT('%', #{itemName}, '%');
+    </select>
+
+    <!--임산부 주의 약품-->
+    <select id = "selectPregnantWomanMedicine" resultType="RefineData">
+        SELECT *
+        FROM `medicine`
+        WHERE `cautionPeople` LIKE '%임신%'
+        OR `cautionPeople` LIKE '%임부%'
+        OR `cautionPeople` LIKE '%수유%';
+    </select>
+
+    <select id = "selectPregnantWomanMedicineByName" resultType="RefineData" parameterType="Map">
+        SELECT *
+        FROM `medicine`
+        WHERE (`cautionPeople` LIKE '%임신%'
+        OR `cautionPeople` LIKE '%임부%'
+        OR `cautionPeople` LIKE '%수유%')
+        AND `itemName` LIKE CONCAT('%', #{itemName}, '%');
+    </select>
+
+    <!--어린이 주의 약품-->
+    <select id = "selectChildMedicine" resultType="RefineData">
+        SELECT *
+        FROM `medicine`
+        WHERE `cautionPeople` LIKE '%어린이%'
+        OR `cautionPeople` LIKE '%젖먹이%'
+        OR `cautionPeople` LIKE '%유아%'
+        OR `cautionPeople` LIKE '%소아%'
+        OR `cautionPeople` LIKE '%영아%';
+    </select>
+
+    <select id = "selectChildMedicineByName" resultType="RefineData" parameterType="Map">
+        SELECT *
+        FROM `medicine`
+        WHERE (`cautionPeople` LIKE '%어린이%'
+        OR `cautionPeople` LIKE '%젖먹이%'
+        OR `cautionPeople` LIKE '%유아%'
+        OR `cautionPeople` LIKE '%소아%'
+        OR `cautionPeople` LIKE '%영아%')
+        AND `itemName` LIKE CONCAT('%', #{itemName}, '%');
+    </select>
+
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+        <typeAlias alias="UserDTO" type="persistence.dto.UserDTO"/>
+        <typeAlias alias="ManagerDTO" type="persistence.dto.ManagerDTO"/>
+        <typeAlias alias="AdminDTO" type="persistence.dto.AdminDTO"/>
+        <typeAlias alias="InfirmaryDTO" type="persistence.dto.InfirmaryDTO"/>
+        <typeAlias alias="InfirmaryNoticeDTO" type="persistence.dto.InfirmaryNoticeDTO"/>
+        <typeAlias alias="InfirmaryAlarmDTO" type="persistence.dto.InfirmaryAlarmDTO"/>
+        <typeAlias alias="InfirmaryMedicineDTO" type="persistence.dto.InfirmaryMedicineDTO"/>
+        <typeAlias alias="MedicineBookmarkDTO" type="persistence.dto.MedicineBookmarkDTO"/>
+        <typeAlias alias="MedicineAlarmDTO" type="persistence.dto.MedicineAlarmDTO"/>
+        <typeAlias alias="MedicineDTO" type="persistence.dto.MedicineDTO"/>
+        <typeAlias alias="RefineData" type="persistence.dto.RefineData"/>
+        <typeAlias alias="ThisMedicineDTO" type="persistence.dto.ThisMedicineDTO"/>
+        <typeAlias alias="MedicineShapeDTO" type="persistence.dto.MedicineShapeDTO"/>
+        <typeAlias alias="DetailInfoDTO" type="persistence.dto.DetailInfoDTO"/>
+
+
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!--  connecting to Local MySql -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost/projectdb?characterEncoding=utf8&amp;serverTimezone=UTC&amp;"/>
+                <property name="username" value="root"/>
+                <property name="password" value="135246"/>
+            </dataSource>
+
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="sqlmapper/user.xml"/>
+        <mapper resource="sqlmapper/manager.xml"/>
+        <mapper resource="sqlmapper/admin.xml"/>
+        <mapper resource="sqlmapper/infirmary.xml"/>
+        <mapper resource="sqlmapper/infirmary_medicine.xml"/>
+        <mapper resource="sqlmapper/infirmary_alarm.xml"/>
+        <mapper resource="sqlmapper/infirmary_notice.xml"/>
+        <mapper resource="sqlmapper/medicine_bookmark.xml"/>
+        <mapper resource="sqlmapper/medicine_alarm.xml"/>
+        <mapper resource="sqlmapper/medicine.xml"/>
+        <mapper resource="sqlmapper/thismedicine.xml"/>
+        <mapper resource="sqlmapper/medicineShape.xml"/>
+        <mapper resource="sqlmapper/DetailInfo.xml"/>
+    </mappers>
+</configuration>

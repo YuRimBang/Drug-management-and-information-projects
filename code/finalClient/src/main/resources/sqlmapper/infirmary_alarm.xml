@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.InfirmaryAlarmMapper">
+    <resultMap id="infirmaryAlarmResult" type="InfirmaryAlarmDTO">
+        <result property="pk" column="pk"/>
+        <result property="infirmary_pk" column="infirmary_pk"/>
+        <result property="notification_title" column="notification_title"/>
+        <result property="alarm_content" column="alarm_content"/>
+        <result property="transfer_time" column="transfer_time" />
+    </resultMap>
+
+    <insert id="insertInfirmaryAlarm" parameterType="InfirmaryAlarmDTO">
+        INSERT INTO infirmary_alarm(infirmary_pk, notification_title, alarm_content, transfer_time) VALUES (#{infirmary_pk}, #{notification_title}, #{alarm_content}, #{transfer_time})
+    </insert>
+
+    <select id="selectInfirmaryAlarmInfo" resultType="InfirmaryAlarmDTO">
+        SELECT * FROM infirmary_alarm where pk = #{pk}
+    </select>
+
+    <delete id="deleteInfirmaryPK">
+        DELETE FROM infirmary_alarm WHERE infirmary_pk = #{infirmary_pk}
+    </delete>
+
+    <select id="selectAlarm" resultType="InfirmaryAlarmDTO" parameterType="Map">
+        SELECT * FROM Infirmary_alarm WHERE infirmary_pk = #{infirmary_pk} AND transfer_time = #{transfer_time}
+    </select>
+
+</mapper>

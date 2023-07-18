@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.UserMapper">
+    <resultMap id="userResult" type="UserDTO">
+        <result property="pk" column="pk"/>
+        <result property="infirmary_pk" column="infirmary_pk"/>
+        <result property="status" column="status"/>
+        <result property="id" column="id"/>
+        <result property="pw" column="pw"/>
+        <result property="name" column="name"/>
+        <result property="phone_num" column="phone_num"/>
+        <result property="school" column="school"/>
+    </resultMap>
+
+    <select id="isIdDuplicateCheck" parameterType="Map" resultType="int">
+        SELECT COUNT(*) FROM user WHERE id = #{id}
+    </select>
+
+    <select id="isPhoneNumDuplicateCheck" parameterType="Map" resultType="int">
+        SELECT COUNT(*) FROM user WHERE phone_num = #{phone_num}
+    </select>
+
+    <select id="login" parameterType="UserDTO" resultType="UserDTO">
+        SELECT * FROM user WHERE id = #{id} AND pw = #{pw}
+    </select>
+
+    <insert id="insertUser" parameterType="UserDTO">
+        INSERT INTO user(id, infirmary_pk, pw, name, phone_num, school)
+        VALUES (#{id}, #{infirmary_pk}, #{pw}, #{name}, #{phone_num}, #{school})
+    </insert>
+
+    <select id="selectId" resultType="Object" parameterType="Map">
+        SELECT id FROM user WHERE name = #{name} AND phone_num = #{phone_num}
+    </select>
+
+    <select id="selectPw" resultType="Object" parameterType="Map">
+        SELECT pw FROM user WHERE id = #{id} AND name = #{name} AND phone_num = #{phone_num}
+    </select>
+
+    <select id="selectSchool" resultType="String">
+        SELECT school FROM user WHERE pk = #{pk}
+    </select>
+
+    <select id="selectInfirmary_pk" resultType="int">
+        SELECT infirmary_pk FROM user WHERE pk = #{pk}
+    </select>
+
+    <update id="updateName" parameterType="UserDTO">
+        UPDATE user SET name = #{name} WHERE pk = #{pk}
+    </update>
+
+    <update id="updatePhoneNum" parameterType="UserDTO">
+        UPDATE user SET phone_num = #{phone_num} WHERE pk = #{pk}
+    </update>
+
+    <update id="updateSchool" parameterType="UserDTO">
+        UPDATE user SET school = #{school}, infirmary_pk = #{infirmary_pk} WHERE pk = #{pk}
+    </update>
+
+    <select id="selectPwForUpdate" resultType="String">
+        SELECT pw FROM user WHERE pk = #{pk}
+    </select>
+
+    <update id="updatePw" parameterType="UserDTO">
+        UPDATE user SET pw = #{pw} WHERE pk = #{pk}
+    </update>
+
+    <select id="selectUserByPk" resultType="UserDTO">
+        SELECT * FROM user WHERE pk = #{pk}
+    </select>
+
+    <!--ManagerDAO-->
+    <select id="selectAll" resultType="UserDTO">
+        SELECT *
+        FROM user
+    </select>
+
+    <select id="selectUser" resultType="UserDTO">
+        SELECT *
+        FROM user
+        WHERE 1=1
+        <if test="name != null and name != ''">
+            AND `name` LIKE CONCAT('%', #{name}, '%')
+        </if>
+        <if test="phone_num != null and phone_num != ''">
+            AND phone_num = #{phone_num}
+        </if>
+    </select>
+
+    <update id="changeUser">
+        UPDATE user set
+                        name = case when #{name} != name and #{name} is not null then #{name} else name end,
+            phone_num = case when #{phone_num} != phone_num and #{phone_num} is not null then #{phone_num} else phone_num end,
+        school = case when #{school} != school and #{school} is not null then #{school} else school end
+        WHERE pk = #{pk}
+    </update>
+
+
+    <delete id="deleteUser" parameterType="Map">
+        DELETE FROM user WHERE pk = #{pk}
+    </delete>
+
+
+    <update id="changeInfirmaryPK">
+        UPDATE user
+        set infirmary_pk = #{infirmary_pk}
+        WHERE infirmary_pk = #{before}
+    </update>
+
+</mapper>

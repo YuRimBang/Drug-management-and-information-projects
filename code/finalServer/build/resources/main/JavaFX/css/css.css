@@ -1,0 +1,36 @@
+.background {
+    -fx-background-image: url("/img/newBackground.jpg");
+}
+
+.main_background{
+    -fx-background-image: url("/img/MainUI.jpg");
+    -fx-background-repeat: no-repeat;
+}
+
+.btn {
+    -fx-background-color: #ffea30;
+    -fx-border-radius: 3%;
+    -fx-border-color: white;
+}
+
+.bar {
+    -fx-border-color: #ffea30;
+}
+
+.btn:hover {
+    -fx-background-color: #f5dd02;
+}
+
+.menu_bar{
+    -fx-background-color: #ffea30;
+    -fx-border-radius: 3%;
+}
+
+.acter{
+    -fx-background-image: url("/img/character.png");
+}
+
+.pane
+{
+    -fx-background-color: #ffea30;
+}

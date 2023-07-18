@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.InfirmaryNoticeMapper">
+    <resultMap id="infirmaryNoticeResult" type="InfirmaryNoticeDTO">
+        <result property="pk" column="pk"/>
+        <result property="infirmary_pk" column="infirmary_pk"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+    </resultMap>
+
+    <select id="selectInfirmaryNotice" resultType="InfirmaryNoticeDTO" parameterType="int">
+        SELECT pk, title, content FROM infirmary_notice WHERE infirmary_pk = #{infirmary_pk}
+    </select>
+
+    <insert id="insertInfirmaryNotice" parameterType="InfirmaryNoticeDTO">
+        INSERT INTO infirmary_notice(infirmary_pk, title, content)
+        VALUES (#{infirmary_pk}, #{title}, #{content})
+    </insert>
+
+    <update id="updateInfirmaryNotice" parameterType="InfirmaryNoticeDTO" >
+        update infirmary_notice set
+        title = case when #{title} != title and #{title} is not null then #{title} else title end,
+        content = case when #{content} != content and #{content} is not null then #{content} else content end
+        where pk = #{pk}
+    </update>
+
+    <delete id="deleteInfirmaryNotice" parameterType="InfirmaryNoticeDTO">
+        DELETE FROM infirmary_notice WHERE pk = #{pk}
+    </delete>
+
+    <select id="selectInfirmaryNoticeByPk" resultType="InfirmaryNoticeDTO">
+        SELECT * FROM infirmary_notice WHERE pk = #{pk}
+    </select>
+
+    <delete id="deleteInfirmaryPK">
+        DELETE FROM infirmary_notice WHERE infirmary_pk = #{infirmary_pk}
+    </delete>
+
+</mapper>

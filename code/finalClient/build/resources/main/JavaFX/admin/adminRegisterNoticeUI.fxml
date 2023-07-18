@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="720.0" text="보건실 공지사항 등록" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.AdminRegisterNotice">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="background">
+            <children>
+                <Button layoutX="550.0" layoutY="432.0" mnemonicParsing="false" onAction="#registerNotice" prefHeight="26.0" prefWidth="90.0" styleClass="btn" text="글쓰기" />
+                <TextField fx:id="titleField" layoutX="122.0" layoutY="103.0" prefHeight="30.0" prefWidth="410.0" />
+                <Label layoutX="89.0" layoutY="111.0" text="제목" />
+                <TextArea fx:id="contentField" layoutX="83.0" layoutY="153.0" prefHeight="353.0" prefWidth="450.0" />
+                <Label layoutX="254.0" layoutY="72.0" text="학교 공지사항" />
+                <Button layoutX="548.0" layoutY="481.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="26.0" prefWidth="92.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

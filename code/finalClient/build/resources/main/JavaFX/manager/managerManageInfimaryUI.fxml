@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1159.0" text="보건실 관리" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.manager.ManagerManageInfirmary">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="bigBackground">
+            <children>
+                <TextField fx:id="nameField" layoutX="96.0" layoutY="75.0" prefHeight="30.0" prefWidth="316.0" promptText="학교명 검색" />
+                <Button layoutX="422.0" layoutY="77.0" mnemonicParsing="false" onAction="#searchInfirmary" prefHeight="25.0" prefWidth="80.0" styleClass="btn" text="검색" />
+                <ListView fx:id="infirmaryListField" layoutX="96.0" layoutY="122.0" prefHeight="411.0" prefWidth="836.0" />
+                <Button layoutX="958.0" layoutY="122.0" mnemonicParsing="false" onAction="#goToViewInfimaryListScreen" prefHeight="29.0" prefWidth="125.0" styleClass="btn" text="보건실 목록" />
+                <Button fx:id="deleteInfirmaryButton" layoutX="958.0" layoutY="226.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="125.0" styleClass="btn" text="보건실 삭제" />
+                <Button layoutX="958.0" layoutY="171.0" mnemonicParsing="false" onAction="#goToApprovalInfimaryScreen" prefHeight="29.0" prefWidth="125.0" styleClass="btn" text="승인요청확인" />
+                <Button layoutX="958.0" layoutY="500.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefHeight="29.0" prefWidth="125.0" styleClass="btn" text="뒤로가기" />
+            </children></AnchorPane>
+    </content>
+</TitledPane>

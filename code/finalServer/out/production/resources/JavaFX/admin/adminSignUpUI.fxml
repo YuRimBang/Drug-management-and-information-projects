@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TitledPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="720.0" text="운영자 회원가입" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.admin.AdminSignUp">
+    <stylesheets>
+        <URL value="@../css/css.css" />
+    </stylesheets>
+    <content>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="background">
+            <children>
+                <Text layoutX="227.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="아이디" textAlignment="CENTER" wrappingWidth="82.36873817443848" />
+                <TextField fx:id="idField" layoutX="309.0" layoutY="164.0" prefHeight="26.0" prefWidth="220.0" />
+                <Text layoutX="227.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="비밀번호" textAlignment="CENTER" wrappingWidth="82.36873817443848" />
+                <TextField fx:id="pwField" layoutX="309.0" layoutY="207.0" prefHeight="26.0" prefWidth="220.0" />
+                <Text layoutX="227.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이름" textAlignment="CENTER" wrappingWidth="82.36873817443848" />
+                <TextField fx:id="nameField" layoutX="309.0" layoutY="251.0" prefHeight="26.0" prefWidth="220.0" />
+                <Text layoutX="227.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" text="전화번호" textAlignment="CENTER" wrappingWidth="82.36873817443848" />
+                <TextField fx:id="phoneNumField" layoutX="309.0" layoutY="294.0" prefHeight="26.0" prefWidth="220.0" />
+                <Text layoutX="226.0" layoutY="396.0" strokeType="OUTSIDE" strokeWidth="0.0" text="재직증명서" textAlignment="CENTER" wrappingWidth="82.36873817443848" />
+                <Button layoutX="497.0" layoutY="382.0" onAction="#chooseImage" text="파일선택" />
+                <TextField fx:id="fileTextField" layoutX="310.0" layoutY="380.0" prefHeight="26.0" prefWidth="165.0" />
+                <Button layoutX="282.0" layoutY="461.0" mnemonicParsing="false" onAction="#signUp" prefWidth="80.0" styleClass="btn" text="확인" textAlignment="CENTER" />
+                <Button layoutX="384.0" layoutY="461.0" mnemonicParsing="false" onAction="#goToPreviousScreen" prefWidth="80.0" styleClass="btn" text="뒤로가기" textAlignment="CENTER" />
+            </children>
+        </AnchorPane>
+    </content>
+</TitledPane>
